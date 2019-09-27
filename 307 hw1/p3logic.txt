@@ -1,0 +1,67 @@
+cd /mnt/c/Users/vshar/desktop/cse307_hw01-SharmaVasu
+
+if starts in "" then must end in ""
+
+if starts in " then must end in "
+
+if start in " then all other " besides last one precede with \
+
+
+
+when preceding any character besides quotes there can be any number of '\'
+
+if there's a sequence of "\" at the end then even number of them good and odd aren't
+
+
+
+
+
+
+
+
+	if len(str) < 2:
+		return False
+	if str.startswith("\"") and str.endswith("\""):
+		backSlashes = []
+		for x in str:
+			if x == "\\":
+				backSlashes.append(x)
+				while x != "\\":
+					backSlashes.append(x)
+		print(len(backSlashes))
+
+
+
+
+"(\\\")" # \"
+
+"(\\*[^\"])" #any number of \ with no " after
+
+"(?:\\{2})" #any sequence of even \
+
+
+
+
+
+
+
+"""import re
+
+def input1Valid(input1):
+	return True
+
+def input2Valid(input2):
+	return False
+
+def isValidString(input):
+	if not re.search("(^\".*\"$)|(^'.*'$)",input): #string not in "" or ''
+		return "False0"
+	if re.search("[^\\\\]\\"+input[0]+".",input): #unescaped quote
+		return "False1"
+	if re.search(".*[^\\\\]*(?:\\\\{2})+\\"+input[0]+".",input): #even number of of back slashes before a quote making it unescaped
+		return "False2"
+	#if re.search("[^\\\\]*(\\\\)\\"+input[0]+"$",input): #escaping the ending quote
+	#	return False
+	return True
+
+print(isValidString(input()))"""
