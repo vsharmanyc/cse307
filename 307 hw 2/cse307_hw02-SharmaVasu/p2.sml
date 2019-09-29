@@ -1,4 +1,3 @@
-
 (* PART A
 Cycle List once function *)
 fun CycleListOnce(list) = tl(list) @ [hd(list)]
@@ -16,17 +15,19 @@ fun CycleList(i, list) =
 
 
 
-(* TESTING OF THE FUNCTIONS *)
+(* TESTING OF THE FUNCTIONS CycleListOnce and CycleList *)
 
 (* returns a string of the numbers in a list *)
 fun StringOfListNumbers(list) = 
-	if List.length list = 1
+	if list = []
+		then ""
+	else if List.length list = 1
 		then Int.toString(hd(list))
 	else
 		Int.toString(hd(list)) ^ ", " ^ StringOfListNumbers(tl(list))
 
 (* returns the string representation of a list of Numbers *)
-fun StringOfList(list) = "[ " ^ StringOfListNumbers(list) ^ " ]" 
+fun StringOfList(list) = "[" ^ StringOfListNumbers(list) ^ "]" 
 
 val list = [0,1,2,3]
 val list2 = [22,45,3,9]
